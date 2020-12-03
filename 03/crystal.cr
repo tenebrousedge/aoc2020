@@ -8,6 +8,7 @@ def slope(dx, dy)
     INPUT[y][x % WIDTH] == '#'
   end
 end
-# puts slope(3, 1) #=> 162 !!
+
+puts slope(3, 1) # => 162
 slopes = { {3, 1}, {1, 1}, {5, 1}, {7, 1}, {1, 2} }
-puts slopes.map {|(dx, dy)| slope(dx, dy)}.product(&.to_i64)
+puts slopes.product(1_u64) { |(dx, dy)| slope(dx, dy) }
