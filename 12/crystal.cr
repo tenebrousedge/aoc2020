@@ -29,9 +29,9 @@ module Movement
       MOVES[dir].call(self, val)
     end
   end
-
 end
-record Ship, loc = Complex.new(0,0), dir = 0.0 do
+
+record Ship, loc = Complex.new(0, 0), dir = 0.0 do
   include Movement
 
   {% for name in %w{+ -} %}
@@ -53,8 +53,7 @@ record Ship, loc = Complex.new(0,0), dir = 0.0 do
   end
 end
 
-
-record Waypoint, loc = Complex.new(10,1) do
+record Waypoint, loc = Complex.new(10, 1) do
   include Movement
 
   {% for name in %w{+ -} %}
@@ -76,7 +75,6 @@ record BiggerBoat, ship = Ship.new, wp = Waypoint.new do
     end
   end
 end
-
 
 def solve1
   INPUT.reduce(Ship.new) do |ship, (dir, val)|
